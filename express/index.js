@@ -7,10 +7,10 @@ const appConfig = config.get('appConfig');
 
 const app = express()
 
-const { version, port } = appConfig
+const { version, port, originAllowed } = appConfig
 
 var corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: originAllowed,
     optionsSuccessStatus: 200
 }
 

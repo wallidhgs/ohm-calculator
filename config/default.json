@@ -12,6 +12,7 @@
     },
     "appConfig": {
         "version": "1.0",
-        "port": "3001"
+        "port": "3001",
+        "originAllowed": "http://localhost:3000"
     }
 }

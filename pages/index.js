@@ -45,8 +45,8 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <Text hero center>Ohm Color Online Calculator</Text>
-      <Values result={result} />
+        <Text hero center>Ohm Color Online Calculator</Text>
+        <Values result={result} />
         <Grid>
           <ChartHeaders />
           <GridRows rows={props.res} band1={bandAObj} band2={bandBObj} band3={bandCObj} band4={bandDObj} />
