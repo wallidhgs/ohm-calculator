@@ -1,6 +1,6 @@
-const dbUtils = require('../../helpers/dbUtils')
+const dbUtils = require('../helpers/dbUtils')
 
-export default function handler(req, res) {
+module.exports = (_req, res) => {
     const cbErr = (err) => { res.status(500).json({ err: err }) }
     const cbSuccess = (rows) => { res.status(200).json({ res: rows }) }
 

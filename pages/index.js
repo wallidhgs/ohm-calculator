@@ -6,17 +6,18 @@ import GridRows from '../components/gridRows';
 
 import { Grid, Text } from '@occmundial/occ-atomic';
 
+const bandRangeUrl = 'http://localhost:3001/v1.0/band_range'
+const calculatorUrl = 'http://localhost:3001/v1.0/calculator'
+
 const calculateResistance = (band1, band2, band3, band4, setResult) => {
   if (band1 === '' || band2 === '' || band3 === '' || band4 === '') {
     setResult({ resistance: -1, tolerance: { min: -1, max: -1 } })
     return
   }
-  let fetchUrl = `http://localhost:3000/api/calculator?bandAColor=${band1}&bandBColor=${band2}&bandCColor=${band3}&bandDColor=${band4}`
-  console.log(fetchUrl)
+  let fetchUrl = `${calculatorUrl}?bandAColor=${band1}&bandBColor=${band2}&bandCColor=${band3}&bandDColor=${band4}`
   fetch(fetchUrl, { method: 'GET' })
     .then(r => r.json())
     .then(data => {
-      console.log(data);
       if (!data) {
         setResult({ resistance: -1, tolerance: { min: -1, max: -1 } })
         return
@@ -56,7 +57,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps(_context) {
-  const res = await fetch(`http://localhost:3000/api/bandRange`)
+  const res = await fetch(bandRangeUrl)
   const data = await res.json()
   if (!data) {
     return {

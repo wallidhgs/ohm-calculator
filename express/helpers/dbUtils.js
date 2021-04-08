@@ -10,6 +10,7 @@ const errConnect = (err) => {
     }
 }
 
+// Global variable to save db records and not perform queries all the time since db is static
 dbColors = null
 
 const dbModule = {

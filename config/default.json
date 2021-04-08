@@ -9,5 +9,9 @@
         "querys": {
             "ohmRange": "SELECT color, band, multiplier, tolerance FROM ohm_values ORDER BY id ASC;"
         }
+    },
+    "appConfig": {
+        "version": "1.0",
+        "port": "3001"
     }
 }
