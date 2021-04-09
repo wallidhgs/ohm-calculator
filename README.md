@@ -13,10 +13,9 @@ Notes:
 
 ### MySQL Setup
 
-- If you are installing for the first time use the following configuration (otherwise check MySQL existing server)
+- If you are installing for the first time use the following configuration (otherwise check MySQL existing server section)
 
 ```txt
-host: "localhost"
 user: "root"
 password: "toor"
 ```
