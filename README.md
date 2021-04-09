@@ -189,7 +189,74 @@ If a column is empty, then that column is not supported by the color code.
 - DB Records based on: <https://en.wikipedia.org/wiki/Electronic_color_code>
 - Original Exercise on: `./resources/Coding Challenge_Apr2021.pdf`
 
-### Considerations:
+### Additional Endpoints
+
+#### /health
+
+If you want to ping backend, this will provide information about the version in addition to server as ping:
+
+```json
+{
+  "version": "1.0"
+}
+```
+
+#### /config
+
+This endpoint allows to see configuration of config file consumed, while service is alive.
+The endpoint is protected by headers `usr` & `pass`, this have 3 possible responses:
+
+If no crendentials are provided: 403 forbidden
+
+```txt
+{
+  "error": "No credentials sent"
+}
+```
+
+If wrong credentials provided: 405 not allowed
+
+```txt
+{
+    "error": "Wrong credentials"
+}
+```
+
+If valid credentials provided: 200 Ok
+
+```txt
+{
+  "appConfig": {
+    ...
+  },
+  "dbConfig": {
+    ...
+  }
+}
+```
+
+Default Credentials are shown below and can be modified on `./config/default.json` file:
+
+```json
+"configCheck": {
+  "usr": "123",
+  "pass": "qwe"
+}
+```
+
+#### Default handler
+
+Any route that is not provided, will show 405 (Not Allowed)
+
+In this example, doing Get on `/health2`
+
+```json
+{
+    "error": "/health2 resource not allowed"
+}
+```
+
+### Considerations
 
 - Javascript does not support interfaces, however the Exercise interface is implemented on: `./express/helpers/ohmValueCalculator.js`
 - On method `CalculateOhmValue` 4th parameter was not necessary, but was implemented as per requirement
