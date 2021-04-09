@@ -1,0 +1,18 @@
+{
+    "dbConfig": {
+        "mysqlConfig": {
+            "host": "localhost",
+            "user": "root",
+            "password": "toor",
+            "database": "ohm_db"
+        },
+        "querys": {
+            "ohmRange": "SELECT color, band, multiplier, tolerance FROM ohm_values ORDER BY id ASC;"
+        }
+    },
+    "appConfig": {
+        "version": "1.0",
+        "port": "3001",
+        "originAllowed": "http://localhost:3000"
+    }
+}

@@ -15,11 +15,6 @@ dbColors = null
 
 const dbModule = {
     getOhmRange: (cbErr, cbSuccess) => {
-        if (dbColors !== null) {
-            return
-        }
-        let connection = mysql.createConnection(dbConfig.mysqlConfig);
-        connection.connect(errConnect);
         const queryFilter = (error, results, _fields) => {
             if (error) {
                 cbErr(error)
@@ -28,6 +23,13 @@ const dbModule = {
             dbColors = results
             cbSuccess(results)
         };
+        if (dbColors !== null) {
+            cbSuccess(dbColors)
+            return
+        }
+
+        let connection = mysql.createConnection(dbConfig.mysqlConfig);
+        connection.connect(errConnect);
         connection.query(dbConfig.querys.ohmRange, queryFilter);
         connection.end();
     },
