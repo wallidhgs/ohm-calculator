@@ -93,6 +93,11 @@ const dbColorsMock = [
 
 const calculatorTest = [
   { query: { bandAColor: 'brown', bandBColor: 'brown', bandCColor: 'brown', bandDColor: 'brown' }, validate: true, tolerance: { min: 108.9, max: 111.1 }, calculate: 110 },
+  { query: { bandAColor: 'black', bandBColor: 'black', bandCColor: 'black', bandDColor: 'brown' }, validate: true, tolerance: { min: 0, max: 0 }, calculate: 0 },
+  { query: { bandAColor: 'yellow', bandBColor: 'orange', bandCColor: 'blue', bandDColor: 'violet' }, validate: true, tolerance: { min: 42957000, max: 43043000 }, calculate: 43000000 },
+  { query: { bandAColor: 'white', bandBColor: 'grey', bandCColor: 'green', bandDColor: 'red' }, validate: true, tolerance: { min: 9604000, max: 9996000 }, calculate: 9800000 },
+  { query: { bandAColor: 'blue', bandBColor: 'yellow', bandCColor: 'pink', bandDColor: 'none' }, validate: true, tolerance: { min: 0.0512, max: 0.07680000000000001 }, calculate: 0.064 },
+  { query: { bandAColor: 'pink', bandBColor: 'pink', bandCColor: 'pink', bandDColor: 'none' }, validate: false, tolerance: { min: 0, max: 0 }, calculate: 0 },
 ]
 test('calculator_validate', () => {
   dbColors = dbColorsMock
