@@ -6,6 +6,8 @@
 
 - [NodeJS](https://nodejs.org/en/download/) V14.X preferred
 - [MySQL Server](https://dev.mysql.com/downloads/mysql/)*
+- [Powershell](https://github.com/PowerShell/PowerShell), not mandatory but suggested
+- [Chrome](https://www.google.com.mx/intl/es-419/chrome/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 
 Notes:
 
@@ -20,6 +22,9 @@ user: "root"
 password: "toor"
 ```
 
+And use default port
+
+
 - Open your SQLManager (Workbench or similar)
 - Execute mysql script under resources `./resources/ohm_db.sql`
 - Script finishes with a select that must return **14** rows
@@ -30,13 +35,13 @@ If you dont want to use suggested credentials for root user or already have an e
 
 - Create a user for `ohm_db` (created on previous step) with reading privileges
 - Update login on `./config/default.json` and `./config/test.json`
-- Search for `user` and `password` and update the values
+- Search for `host`, `user` and `password` and update the values
 - Document should look similar to this
 
 ```json
     ...
     "mysqlConfig": {
-        "host": "localhost",
+        "host": "mysqlServerHost",
         "user": "myNewUser",
         "password": "myCustomPassword",
         "database": "ohm_db"
@@ -46,6 +51,7 @@ If you dont want to use suggested credentials for root user or already have an e
 
 Note:
 *Ensure this new user can login with `mysql_native_password`*
+This current app version will asume mysql is on default port
 
 ### Project Setup
 
